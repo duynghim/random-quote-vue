@@ -1,27 +1,33 @@
 <template>
   <div class="wrapper">
-    <blockquote class="shadow">
-      <p>
-        {{ quote.quote }}
-      </p>
-      <p class="author">
-        {{ quote.author }}
-      </p>
-    </blockquote>
-    <button class="button-9" role="button" v-on:click="newQuote">
-      New Quote
-    </button>
+    <div v-if="quote">
+      <blockquote class="shadow">
+        <p>
+          {{ quote.quote }}
+        </p>
+        <p class="author">
+          {{ quote.author }}
+        </p>
+      </blockquote>
+      <button class="button-9" role="button" v-on:click="newQuote">
+        New Quote
+      </button>
+    </div>
+    <div v-if="!quote">
+      <pulse-loader :loading="!quote" color="blue"></pulse-loader>
+    </div>
   </div>
 </template>
 
 <script>
 import axios from "axios";
+import PulseLoader from "vue-spinner/src/PulseLoader.vue";
 
 export default {
   name: "TheQuote",
   data() {
     return {
-      quote: {},
+      quote: null,
     };
   },
   methods: {

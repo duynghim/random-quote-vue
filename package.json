@@ -10,9 +10,11 @@
   },
   "dependencies": {
     "axios": "^1.2.2",
+    "bootstrap": "^5.3.0-alpha1",
     "bulma": "^0.9.4",
     "prettier": "^2.8.1",
-    "vue": "^3.2.45"
+    "vue": "^3.2.45",
+    "vue-spinner": "^1.0.4"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.0.0",
